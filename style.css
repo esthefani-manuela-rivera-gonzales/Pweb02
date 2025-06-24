@@ -1,5 +1,5 @@
 body {
-  font-family: ASegoe UI, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #7c3df0;
@@ -15,6 +15,42 @@ header {
 
 h1 {
   margin: 0;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #e0c3fc, #8ec5fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brillo 3s linear infinite;
+}
+
+@keyframes brillo {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #7c3df0;
+  transition: width 0.3s;
+}
+
+h2:hover::after {
+  width: 100%;
 }
 
 section {
@@ -35,4 +71,44 @@ footer {
   background-color: #e5e7eb;
   padding: 1rem;
   margin-top: 2rem;
+}
+
+.hoverbox .contenedor {
+  display: flex;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  height: 100%;
+}
+
+.imagen-hover {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.5s ease;
+  flex-shrink: 0;
+}
+
+.imagen-hover img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.contenido-hover {
+  background: white;
+  padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.5s ease;
+}
+
+.hoverbox:hover .imagen-hover {
+  width: 40%;
+}
+
+.hoverbox:hover .contenido-hover {
+  transform: translateX(10%);
 }
